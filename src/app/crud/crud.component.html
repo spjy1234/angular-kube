@@ -1,0 +1,21 @@
+<div>
+  <h2>Add User</h2>
+  <form [formGroup]="postForm" (ngSubmit)="postUser()">
+    <label>Username</label><input formControlName="Username" type="text"><br>
+    <label>Email</label><input formControlName="Email" type="text"><br>
+    <label>Password</label><input formControlName="Password" type="text"><br>
+    <button [disabled]="!postForm.valid">Add</button>
+  </form>
+</div>
+
+<div>
+  <h2>Delete, Update User</h2>
+  <div *ngFor="let user of users" class="deleteUser" [routerLink]="['/crud',user.ID]">
+    <div><label>ID: </label>{{user.ID}}</div>
+    <div><label>Username: </label>{{user.username}}</div>
+    <div><label>Email: </label>{{user.email}}</div>
+    <div><label>Password: </label>{{user.password}}</div>
+  </div>
+</div>
+
+

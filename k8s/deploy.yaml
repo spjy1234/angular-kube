@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test1
+  labels:
+    app: docker-go-angular-nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: angular
+  template:
+    metadata:
+      labels:
+        app: angular
+    spec:
+      containers:
+        - name: kube-test
+          image: docker-go-angular-nginx
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80

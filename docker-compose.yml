@@ -1,0 +1,23 @@
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: dockerfiles/angular/Dockerfile
+    ports:
+      - "80:80"
+  fiber:
+    build: ../../go/src/github.com/junyoung/fiber-angular
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+  db:
+    build:
+      context: .
+      dockerfile: dockerfiles/db/Dockerfile
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB : "postgres"

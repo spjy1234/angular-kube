@@ -1,0 +1,10 @@
+<h1>Users</h1>
+<div *ngFor="let user of users" class="user">
+  <div>ID: {{user.ID}}</div>
+  <div>Username: {{user.username}}</div>
+  <div>Password: {{user.password}}</div>
+  <div>Email: {{user.email}}</div>
+  <div>Created: {{user.CreatedAt}}</div>
+  <div>Updated: {{user.UpdatedAt}}</div>
+  <div *ngIf="user.DeletedAt == null ">Deleted: null</div>
+</div>

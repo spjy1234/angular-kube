@@ -1,0 +1,11 @@
+<h2>Update and Delete</h2>
+<div *ngIf="user$ | async as user" >
+  <form #u="ngForm" (ngSubmit)="updateUser(u,user.ID)">
+    <label>ID: </label><input name="ID" type="text" value="{{user.ID}}" disabled><br>
+    <label>Username: </label><input name="username" type="text" placeholder="{{user.username}}" ngModel><br>
+    <label>Email: </label><input name="email" type="email" placeholder="{{user.email}}" ngModel><br>
+    <label>Password: </label><input name="password" type="text" placeholder="{{user.password}}" ngModel><br>
+    <button type="submit">Update</button>
+  </form>
+  <button (click)="deleteUser(user.ID)">Delete</button>
+</div>
