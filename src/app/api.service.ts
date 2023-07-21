@@ -7,7 +7,7 @@ import {map, Observable} from "rxjs";
   providedIn: 'root'
 })
 export class ApiService {
-  userUrl: string = "http://fiber:3000/api/user"
+  userUrl: string = "/api/user"
   constructor(private http: HttpClient) { }
   getUser(){
     return this.http.get<AllService>(this.userUrl)
