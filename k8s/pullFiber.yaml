@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fiber-deployment
+  labels:
+    app: fiber
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fiber
+  template:
+    metadata:
+      labels:
+        app: fiber
+    spec:
+      containers:
+        - name: fiber-deployment
+          image: junyoun98/go-angular-fiber:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000

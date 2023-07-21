@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test1
+  name: angular-deployment
   labels:
-    app: docker-go-angular-nginx
+    app: angular
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: angular
@@ -15,8 +15,8 @@ spec:
         app: angular
     spec:
       containers:
-        - name: kube-test
-          image: docker-go-angular-nginx
-          imagePullPolicy: IfNotPresent
+        - name: angular-deployment
+          image: junyoun98/go-angular-nginx:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
