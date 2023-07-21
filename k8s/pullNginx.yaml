@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: angular-deployment
-          image: junyoun98/go-angular-nginx:latest
+          image: junyoun98/go-angular-nginx
           imagePullPolicy: Always
           ports:
             - containerPort: 80
